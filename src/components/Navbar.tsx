@@ -1,0 +1,140 @@
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
+import logo from "../assets/f713dc9bc433ecc1a70363e4ff0e53ad77120b6a.png"
+import { useState } from "react";
+import { MegaMenuContainer } from "./MegaMenuContainer";
+
+export const Navbar = () => {
+    const [activeMenu, setActiveMenu] = useState(null);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    const navItems = [
+        { key: 'about', label: 'About' },
+        { key: 'products', label: 'Products' },
+        { key: 'distilleries', label: 'Distilleries' },
+        { key: 'investors', label: 'Investors' },
+        { key: 'socialResponsibility', label: 'Social Responsibility' },
+        { key: 'contact', label: 'Contact' }
+    ];
+
+    const toggleMenuIcon = () => {
+        setMobileMenuOpen(!mobileMenuOpen);
+        setActiveMenu(null);
+    }
+
+    const handleNavClick = (key) => {
+        if (menuData[key]) {
+            setActiveMenu(activeMenu === key ? null : key);
+        } else {
+            setActiveMenu(null);
+        }
+    }
+
+    const menuData = {
+        about: null,
+        products: null,
+        distilleries: {
+            title: "Distilleries",
+            description: "Combined together with the experience of our leadership team, we can state proudly that our ability to run distilleries in India is unparalleled.",
+            items: [
+                {
+                    title: "Samalkha, Haryana",
+                    image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&h=300&fit=crop",
+                    alt: "Bottling line"
+                },
+                {
+                    title: "Behror, Rajasthan",
+                    image: "https://images.unsplash.com/photo-1555982105-d25af4182e4e?w=400&h=300&fit=crop",
+                    alt: "Wooden barrels"
+                },
+                {
+                    title: "Baharagora, Jharkhand",
+                    image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop",
+                    alt: "Copper stills"
+                },
+                {
+                    title: "Dhandua, Bihar",
+                    image: "https://images.unsplash.com/photo-1504279807946-8f7eb54aad09?w=400&h=300&fit=crop",
+                    alt: "Distillery interior"
+                }
+            ]
+        },
+        investors: null,
+        socialResponsibility: {
+            title: "Social Responsibility",
+            description: "Paying our privilege forward and paving the way for stronger communities has always been a core value.",
+            items: [
+                {
+                    title: "GSL Gram Vikas",
+                    image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=300&fit=crop",
+                    alt: "Community hands"
+                },
+                {
+                    title: "IPS Foundation",
+                    image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&h=300&fit=crop",
+                    alt: "Red heart hands"
+                },
+                {
+                    title: "GRAS Academy",
+                    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&h=300&fit=crop",
+                    alt: "Business meeting"
+                },
+                {
+                    title: "InShakti",
+                    image: "https://images.unsplash.com/photo-1509099863731-ef4bff19e808?w=400&h=300&fit=crop",
+                    alt: "Coffee beans"
+                }
+            ]
+        },
+        contact: null
+    };
+
+    return (
+        <nav
+            className={`w-full px-6 py-4 flex items-center justify-between relative z-50 transition-colors duration-300 ${mobileMenuOpen || activeMenu ? 'bg-white shadow-md' : 'bg-transparent'
+                }`}
+        >
+            <div className="flex items-center gap-2 transform translate-x-60">
+                <img
+                    src={logo}
+                    alt="Logo"
+                    className="h-10 md:h-16 lg:h-20 w-50 object-contain"
+                />
+            </div>
+
+            {mobileMenuOpen && (
+                <div className="flex items-center gap-6 md:gap-8 flex-1 justify-center">
+                    {navItems.map((item) => (
+                        <button
+                            key={item.key}
+                            onClick={() => handleNavClick(item.key)}
+                            className={`text-sm md:text-base font-medium transition-colors whitespace-nowrap ${activeMenu === item.key
+                                ? 'text-amber-700'
+                                : 'text-gray-700 hover:text-amber-700'
+                                }`}
+                        >
+                            {item.label}
+                        </button>
+                    ))}
+                </div>
+            )}
+
+            <button
+                className="p-2 rounded-lg hover:bg-gray-100 transition-colors transform -translate-x-60"
+                onClick={toggleMenuIcon}
+            >
+                {mobileMenuOpen ? (
+                    <XMarkIcon className="h-7 w-7 md:h-8 md:w-8 text-gray-700" />
+                ) : (
+                    <Bars3Icon className="h-7 w-7 md:h-8 md:w-8 text-white" />
+                )}
+            </button>
+
+
+            {activeMenu && menuData[activeMenu] && (
+                <div className="absolute top-full left-0 right-0 bg-white mt-0">
+                    <MegaMenuContainer data={menuData[activeMenu]} />
+                </div>
+            )}
+        </nav>
+    );
+};
