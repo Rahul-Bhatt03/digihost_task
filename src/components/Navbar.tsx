@@ -31,7 +31,32 @@ export const Navbar = () => {
 
     const menuData = {
         about: null,
-        products: null,
+          products: {
+        title: "Products",
+        description: "Our diverse range of premium alcohol products crafted with quality and heritage.",
+        items: [
+            {
+                title: "Oakton Barral Aged Grain Whiskey",
+                image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&h=300&fit=crop",
+                alt: "Whiskey bottles"
+            },
+            {
+                title: " Dooab Vodka",
+                image: "https://images.unsplash.com/photo-1555982105-d25af4182e4e?w=400&h=300&fit=crop",
+                alt: "Vodka bottles"
+            },
+            {
+                title: " Steven Heaven Rum",
+                image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop",
+                alt: "Rum bottles"
+            },
+            {
+                title: "Terai Dry Gin",
+                image: "https://images.unsplash.com/photo-1504279807946-8f7eb54aad09?w=400&h=300&fit=crop",
+                alt: "Gin bottles"
+            },
+        ]
+    },
         distilleries: {
             title: "Distilleries",
             description: "Combined together with the experience of our leadership team, we can state proudly that our ability to run distilleries in India is unparalleled.",

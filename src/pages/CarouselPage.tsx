@@ -15,32 +15,32 @@ import logo3 from "../assets/firstLogo.png";
 import logo4 from "../assets/firstLogo.png";
 
 export const CarouselPage = () => {
- const carouselData = [
-  {
-    id: 1,
-    logo: logo1,
-    imageUrl: carousel1,
-    description: "The Samalkha plant was first established as a molasses-based distillery..."
-  },
-  {
-    id: 2,
-    logo: logo2,
-    imageUrl: carousel2,
-    description: "Paying our privilege forward and paving the way for stronger communities..."
-  },
-  {
-    id: 3,
-    logo: logo3,
-    imageUrl: carousel3,
-    description: "InShakti is an end to end solution provider for aspiring women entrepreneurs..."
-  },
-  {
-    id: 4,
-    logo: logo4,
-    imageUrl: carousel4,
-    description: "Quality, heritage, and excellence in every bottle through vocational skill training."
-  }
-];
+  const carouselData = [
+    {
+      id: 1,
+      logo: logo1,
+      imageUrl: carousel1,
+      description: "The Samalkha plant was first established as a molasses-based distillery..."
+    },
+    {
+      id: 2,
+      logo: logo2,
+      imageUrl: carousel2,
+      description: "Paying our privilege forward and paving the way for stronger communities..."
+    },
+    {
+      id: 3,
+      logo: logo3,
+      imageUrl: carousel3,
+      description: "InShakti is an end to end solution provider for aspiring women entrepreneurs..."
+    },
+    {
+      id: 4,
+      logo: logo4,
+      imageUrl: carousel4,
+      description: "Quality, heritage, and excellence in every bottle through vocational skill training."
+    }
+  ];
 
   const [index, setIndex] = useState(0);
 
@@ -64,15 +64,15 @@ export const CarouselPage = () => {
   };
 
   return (
-    <div 
-  className="grid grid-cols-1 lg:grid-cols-2 min-h-screen bg-cover bg-center bg-no-repeat"
-  style={{ backgroundImage: `url(${carouselbg})` }}
->
-     {/* Overlay */}
-   <div className="absolute inset-0 bg-black/40 pointer-events-none"></div>
+    <div
+      className="grid grid-cols-1 lg:grid-cols-2 min-h-screen bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${carouselbg})` }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40 pointer-events-none"></div>
 
       {/* LEFT SIDE - Text Content */}
-       <div className="relative flex flex-col justify-center items-start p-12 lg:p-20 overflow-hidden z-10">
+      <div className="relative flex flex-col justify-center items-start p-12 lg:p-20 overflow-hidden z-10">
 
         {/* Content */}
         <div className="relative z-10 max-w-xl">
@@ -112,16 +112,16 @@ export const CarouselPage = () => {
               key={cardIndex}
               className={`
                 absolute transition-all duration-700 ease-in-out
-              ${position === 'center' 
-  ? 'z-20 translate-y-0' 
-  : position === 'top' 
-    ? 'z-10 -translate-y-[420px] md:-translate-y-[480px]' 
-    : 'z-10 translate-y-[420px] md:translate-y-[480px]'
-}
+              ${position === 'center'
+                  ? 'z-20 translate-y-0'
+                  : position === 'top'
+                    ? 'z-10 -translate-y-[420px] md:-translate-y-[480px]'
+                    : 'z-10 translate-y-[420px] md:translate-y-[480px]'
+                }
               `}
             >
-              <CarouselCard 
-                {...data} 
+              <CarouselCard
+                {...data}
                 isCenter={position === 'center'}
               />
             </div>

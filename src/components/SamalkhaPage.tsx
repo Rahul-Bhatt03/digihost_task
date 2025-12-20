@@ -3,7 +3,7 @@ import LearnMoreButton from "./LearnMoreButton";
 
 export const SamalkhaPage = () => {
     return (
-        <section className="bg-[#FFF7F1] w-full h-280">
+        <section className="bg-[#FFF7F1] w-full h-165 lg:h-280">
             <div
                 className="
           max-w-7xl mx-auto
@@ -67,8 +67,8 @@ export const SamalkhaPage = () => {
                 </p>
 
                 <div className="p-6 lg:translate-x-45 lg:translate-y-30">
-  <LearnMoreButton textBlack>Learn More</LearnMoreButton>
-</div>
+                    <LearnMoreButton textBlack>Learn More</LearnMoreButton>
+                </div>
 
 
             </div>
