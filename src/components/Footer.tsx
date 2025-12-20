@@ -2,8 +2,8 @@ import logo from "../assets/footer.jpg";
 
 export const Footer = () => {
   return (
-  <footer className="w-full relative">
-      <div className="relative w-full h-[450px] md:h-[400px] lg:h-[450px]">
+    <footer className="w-full relative">
+      <div className="relative w-full h-[520px] sm:h-[480px] md:h-[400px] lg:h-[450px]">
         <img
           src={logo}
           alt="Footer Background"
@@ -12,48 +12,79 @@ export const Footer = () => {
 
         <div className="absolute inset-0 bg-black/60 shadow-inner"></div>
 
-        <div className="absolute inset-0 flex flex-col md:flex-row justify-between items-start md:items-center px-6 md:px-20 text-white h-full">
+        <div className="
+          absolute inset-0
+          flex flex-col md:flex-row
+          justify-center md:justify-between
+          items-center md:items-center
+          px-6 md:px-20
+          text-white
+          h-full
+          gap-12 md:gap-0
+        ">
 
-          {/* Logo & Subtitle */}
-          <div className="mb-8 md:mb-0 md:w-1/3 translate-x-20 -translate-y-16">
-            <h1 className="text-[78px] font-serif mb-2">Globus Spirits</h1>
-            <p className="text-[28px]">Live with Spirit</p>
+          <div
+            className="
+              md:w-1/3
+              text-center md:text-left
+              md:translate-x-20 md:-translate-y-16
+            "
+          >
+            <h1 className="text-[36px] sm:text-[44px] md:text-[78px] font-serif mb-1 md:mb-2">
+              Globus Spirits
+            </h1>
+            <p className="text-[16px] sm:text-[18px] md:text-[28px]">
+              Live with Spirit
+            </p>
           </div>
 
-          {/* Links */}
-          <div className="flex flex-col md:flex-row gap-10 md:gap-16 w-full md:w-2/3">
-            
-            <div className="translate-x-45">
-              <h2 className="text-[20px] font-serif mb-2">Quick Links</h2>
-              <ul className="space-y-1 text-[16px] translate-y-5">
-                <li className="hover:text-amber-400 cursor-pointer translate-y-3">About</li>
-                <li className="hover:text-amber-400 cursor-pointer translate-y-3">Products</li>
-                <li className="hover:text-amber-400 cursor-pointer translate-y-3">Operations</li>
-                <li className="hover:text-amber-400 cursor-pointer translate-y-3">Investors</li>
-                <li className="hover:text-amber-400 cursor-pointer translate-y-3">Social Responsibility</li>
+          <div
+            className="
+              w-full md:w-2/3
+              grid grid-cols-1 sm:grid-cols-2 md:flex
+              gap-10 md:gap-16
+              text-center sm:text-left
+            "
+          >
+
+            <div className="md:translate-x-45">
+              <h2 className="text-[16px] md:text-[20px] font-serif mb-3">
+                Quick Links
+              </h2>
+              <ul className="space-y-2 text-[14px] md:text-[16px] md:translate-y-5">
+                <li className="hover:text-amber-400 cursor-pointer">About</li>
+                <li className="hover:text-amber-400 cursor-pointer">Products</li>
+                <li className="hover:text-amber-400 cursor-pointer">Operations</li>
+                <li className="hover:text-amber-400 cursor-pointer">Investors</li>
+                <li className="hover:text-amber-400 cursor-pointer">Social Responsibility</li>
               </ul>
             </div>
 
-            <div className="translate-x-65 ">
-              <h2 className="text-[20px] font-serif mb-2 ">Privacy & Policy</h2>
-              <ul className="space-y-1 text-[16px] translate-y-5">
+            <div className="md:translate-x-65">
+              <h2 className="text-[16px] md:text-[20px] font-serif mb-3">
+                Privacy & Policy
+              </h2>
+              <ul className="space-y-2 text-[14px] md:text-[16px] md:translate-y-5">
                 <li className="hover:text-amber-400 cursor-pointer">Disclaimer</li>
                 <li className="hover:text-amber-400 cursor-pointer">Careers</li>
               </ul>
             </div>
 
-            <div className="translate-x-85">
-              <h2 className="text-[20px] font-serif mb-2">Socials</h2>
-              <ul className="space-y-1 text-[16px] translate-y-5">
+            <div className="md:translate-x-85">
+              <h2 className="text-[16px] md:text-[20px] font-serif mb-3">
+                Socials
+              </h2>
+              <ul className="space-y-2 text-[14px] md:text-[16px] md:translate-y-5">
                 <li className="hover:text-amber-400 cursor-pointer">LinkedIn</li>
               </ul>
             </div>
+
           </div>
         </div>
       </div>
 
-      <div className="bg-black h-20 text-white flex items-center justify-center">
-        <span className="text-sm md:text-base text-center">
+      <div className="bg-black h-16 md:h-20 text-white flex items-center justify-center px-4">
+        <span className="text-xs sm:text-sm md:text-base text-center leading-relaxed">
           © Copyright 2024, All rights reserved with Globus Spirits Ltd.
         </span>
       </div>

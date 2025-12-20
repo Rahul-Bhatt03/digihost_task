@@ -1,7 +1,6 @@
 import logo from "../assets/eb426d81984c9da1cf18be4f39fd6ab6fcba36b0.jpg";
 import LearnMoreButton from "../../src/components/LearnMoreButton"
 import { Navbar } from "./Navbar";
-import { Footer } from "./Footer";
 
 export const HeroSection = () => {
     return (
@@ -27,6 +26,19 @@ export const HeroSection = () => {
                     <div className="translate-y-10 flex justify-center">
                         <LearnMoreButton children="Learn More" />
                     </div>
+                </div>
+
+                
+                <div className="flex items-center gap-4 mb-6 text-white translate-y-100 -translate-x-120">
+                    <span className="w-12 h-[1px] bg-white/70"></span>
+                    <span className="w-1 h-1 rounded-full bg-white"></span>
+
+                    <span className="text-sm tracking-widest font-light">
+                        Since 1993
+                    </span>
+
+                    <span className="w-1 h-1 rounded-full bg-white"></span>
+                    <span className="w-12 h-[1px] bg-white/70"></span>
                 </div>
             </div>
           
