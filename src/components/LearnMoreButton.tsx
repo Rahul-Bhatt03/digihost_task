@@ -1,8 +1,12 @@
-const LearnMoreButton = ({ children }) => {
+interface ButtonProp{
+  children:string
+}
+
+const LearnMoreButton = ({ children }:ButtonProp) => {
   return (
     <div>
       <button
-        className="
+        className=" 
           w-[160px] h-[45px]
           flex items-center justify-center
           rounded-lg
