@@ -6,11 +6,14 @@ import bottle from "../assets/theme1bottle.png"
 import bottle2 from "../assets/theme2bottle.png"
 import bottle3 from "../assets/theme3bottle.png"
 
+type MenuKey = "about" | "products" | "distilleries" | "investors" | "socialResponsibility" | "contact";
+
+
 export const Navbar = () => {
-    const [activeMenu, setActiveMenu] = useState(null);
+   const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const navItems = [
+    const navItems: { key: MenuKey; label: string }[] = [
         { key: 'about', label: 'About' },
         { key: 'products', label: 'Products' },
         { key: 'distilleries', label: 'Distilleries' },
@@ -28,15 +31,16 @@ export const Navbar = () => {
         }
     }
 
-    const handleNavClick = (key) => {
-        if (menuData[key]) {
-            setActiveMenu(activeMenu === key ? null : key);
-        } else {
-            setActiveMenu(null);
-        }
-    }
+   const handleNavClick = (key: MenuKey) => {
+  if (menuData[key]) {
+    setActiveMenu(activeMenu === key ? null : key);
+  } else {
+    setActiveMenu(null);
+  }
+};
 
-    const menuData = {
+
+   const menuData: Record<MenuKey, any> = {
         about: null,
         products: {
             title: "Products",
