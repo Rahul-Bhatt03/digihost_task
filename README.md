@@ -22,3 +22,7 @@ npm install
 
 4.Run the development server
 npm run dev
+
+
+
+Note: Due to the 2-day timeline, I was unable to implement a small section of the Figma design, which has been left as is. I focused on ensuring the majority of the design is implemented with clean, responsive code.
