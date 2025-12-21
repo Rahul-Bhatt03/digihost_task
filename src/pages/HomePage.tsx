@@ -6,12 +6,14 @@ import { HeroSection } from "../components/HeroSection"
 import { MileStone } from "../components/MileStone"
 import { SamalkhaPage } from "../components/SamalkhaPage"
 import { CarouselPage } from "./CarouselPage"
+import { ThemeCarousel } from "./ThemeCarousel"
 
 export const HomePage = () => {
     return (
         <div>
             <HeroSection />
             <CocktailPage />
+            <ThemeCarousel/>
             <MileStone/>
             <Achievement/>
             <SamalkhaPage/>
