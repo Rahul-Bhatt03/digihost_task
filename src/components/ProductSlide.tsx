@@ -3,7 +3,36 @@ import table from "../assets/table.png";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import LearnMoreButton from "./LearnMoreButton";
 
-export const ProductSlide = ({ data, handleNext, handlePrev, isExiting }) => {
+interface Accent {
+  image: string;
+  top?: string;
+  bottom?: string;
+  left?: string;
+  right?: string;
+  width?: string;
+  height?: string;
+  rotate?: string;
+}
+
+interface Slide {
+  id: string;
+  title: string;
+  description: string;
+  bottleImg: string;
+  bgColor: string;
+  textColor: string;
+  accents: Accent[];
+}
+
+interface ProductSlideProps {
+  data: Slide;
+  handleNext: () => void;
+  handlePrev: () => void;
+  isExiting: boolean;
+}
+
+
+export const ProductSlide = ({ data, handleNext, handlePrev, isExiting }:ProductSlideProps) => {
   return (
     <div className="relative w-full h-[70vh] flex items-end justify-center overflow-hidden">
 

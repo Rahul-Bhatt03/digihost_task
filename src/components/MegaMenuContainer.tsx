@@ -1,4 +1,21 @@
-export const MegaMenuContainer = ({ data }) => {
+interface MenuItem {
+  title: string;
+  image: string;
+  alt: string;
+}
+
+interface MegaMenuData {
+  title: string;
+  description: string;
+  items: MenuItem[];
+}
+
+interface MegaMenuContainerProps {
+  data: MegaMenuData;
+}
+
+
+export const MegaMenuContainer = ({ data }:MegaMenuContainerProps) => {
     return (
         <div className="absolute left-0 right-0 top-full mt-0 bg-white shadow-2xl border-t border-gray-100 z-50">
             <div className="max-w-7xl mx-auto px-8 py-10">
