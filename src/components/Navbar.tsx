@@ -31,32 +31,32 @@ export const Navbar = () => {
 
     const menuData = {
         about: null,
-          products: {
-        title: "Products",
-        description: "Our diverse range of premium alcohol products crafted with quality and heritage.",
-        items: [
-            {
-                title: "Oakton Barral Aged Grain Whiskey",
-                image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&h=300&fit=crop",
-                alt: "Whiskey bottles"
-            },
-            {
-                title: " Dooab Vodka",
-                image: "https://images.unsplash.com/photo-1555982105-d25af4182e4e?w=400&h=300&fit=crop",
-                alt: "Vodka bottles"
-            },
-            {
-                title: " Steven Heaven Rum",
-                image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop",
-                alt: "Rum bottles"
-            },
-            {
-                title: "Terai Dry Gin",
-                image: "https://images.unsplash.com/photo-1504279807946-8f7eb54aad09?w=400&h=300&fit=crop",
-                alt: "Gin bottles"
-            },
-        ]
-    },
+        products: {
+            title: "Products",
+            description: "Our diverse range of premium alcohol products crafted with quality and heritage.",
+            items: [
+                {
+                    title: "Oakton Barral Aged Grain Whiskey",
+                    image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&h=300&fit=crop",
+                    alt: "Whiskey bottles"
+                },
+                {
+                    title: " Dooab Vodka",
+                    image: "https://images.unsplash.com/photo-1555982105-d25af4182e4e?w=400&h=300&fit=crop",
+                    alt: "Vodka bottles"
+                },
+                {
+                    title: " Steven Heaven Rum",
+                    image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop",
+                    alt: "Rum bottles"
+                },
+                {
+                    title: "Terai Dry Gin",
+                    image: "https://images.unsplash.com/photo-1504279807946-8f7eb54aad09?w=400&h=300&fit=crop",
+                    alt: "Gin bottles"
+                },
+            ]
+        },
         distilleries: {
             title: "Distilleries",
             description: "Combined together with the experience of our leadership team, we can state proudly that our ability to run distilleries in India is unparalleled.",
@@ -118,7 +118,7 @@ export const Navbar = () => {
             className={`w-full px-6 py-4 flex items-center justify-between relative z-50 transition-colors duration-300 ${mobileMenuOpen || activeMenu ? 'bg-white shadow-md' : 'bg-transparent'
                 }`}
         >
-            <div className="flex items-center gap-2 transform translate-x-60">
+            <div className="flex items-center gap-2 lg:translate-x-60">
                 <img
                     src={logo}
                     alt="Logo"
@@ -126,25 +126,37 @@ export const Navbar = () => {
                 />
             </div>
 
-            {mobileMenuOpen && (
-                <div className="flex items-center gap-6 md:gap-8 flex-1 justify-center">
-                    {navItems.map((item) => (
-                        <button
-                            key={item.key}
-                            onClick={() => handleNavClick(item.key)}
-                            className={`text-sm md:text-base font-medium transition-colors whitespace-nowrap ${activeMenu === item.key
-                                ? 'text-amber-700'
-                                : 'text-gray-700 hover:text-amber-700'
-                                }`}
-                        >
-                            {item.label}
-                        </button>
-                    ))}
-                </div>
-            )}
+           {mobileMenuOpen && (
+  <div
+    className="
+      absolute top-full left-0 right-0
+      bg-white
+      max-h-[70vh]
+      overflow-y-auto
+      flex flex-col
+      items-center
+      gap-6
+      py-6
+    "
+  >
+    {navItems.map((item) => (
+      <button
+        key={item.key}
+        onClick={() => handleNavClick(item.key)}
+        className={`text-base font-medium transition-colors ${
+          activeMenu === item.key
+            ? "text-amber-700"
+            : "text-gray-700 hover:text-amber-700"
+        }`}
+      >
+        {item.label}
+      </button>
+    ))}
+  </div>
+)}
 
             <button
-                className="p-2 rounded-lg hover:bg-gray-100 transition-colors transform -translate-x-60"
+                className="p-2 rounded-lg hover:bg-gray-100 transition-colors lg:-translate-x-60"
                 onClick={toggleMenuIcon}
             >
                 {mobileMenuOpen ? (
