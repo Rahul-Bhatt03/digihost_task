@@ -8,7 +8,6 @@ interface ButtonProp {
 
 const LearnMoreButton = ({
   children,
-  textBlack = false,
   className = "",
   variant = "black",
   size = "md",
