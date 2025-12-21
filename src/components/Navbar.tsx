@@ -2,10 +2,13 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import logo from "../assets/f713dc9bc433ecc1a70363e4ff0e53ad77120b6a.png"
 import { useState } from "react";
 import { MegaMenuContainer } from "./MegaMenuContainer";
+import bottle from "../assets/theme1bottle.png"
+import bottle2 from "../assets/theme2bottle.png"
+import bottle3 from "../assets/theme3bottle.png"
 
 export const Navbar = () => {
     const [activeMenu, setActiveMenu] = useState(null);
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const navItems = [
         { key: 'about', label: 'About' },
@@ -16,9 +19,13 @@ export const Navbar = () => {
         { key: 'contact', label: 'Contact' }
     ];
 
-    const toggleMenuIcon = () => {
-        setMobileMenuOpen(!mobileMenuOpen);
-        setActiveMenu(null);
+ const toggleMenu = () => {
+        if (menuOpen) {
+            setMenuOpen(false);
+            setActiveMenu(null);
+        } else {
+            setMenuOpen(true);
+        }
     }
 
     const handleNavClick = (key) => {
@@ -37,22 +44,22 @@ export const Navbar = () => {
             items: [
                 {
                     title: "Oakton Barral Aged Grain Whiskey",
-                    image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&h=300&fit=crop",
+                    image: bottle,
                     alt: "Whiskey bottles"
                 },
                 {
                     title: " Dooab Vodka",
-                    image: "https://images.unsplash.com/photo-1555982105-d25af4182e4e?w=400&h=300&fit=crop",
+                    image: bottle2,
                     alt: "Vodka bottles"
                 },
                 {
                     title: " Steven Heaven Rum",
-                    image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop",
+                    image: bottle3,
                     alt: "Rum bottles"
                 },
                 {
                     title: "Terai Dry Gin",
-                    image: "https://images.unsplash.com/photo-1504279807946-8f7eb54aad09?w=400&h=300&fit=crop",
+                    image: bottle2,
                     alt: "Gin bottles"
                 },
             ]
@@ -115,7 +122,7 @@ export const Navbar = () => {
 
     return (
         <nav
-            className={`w-full px-6 py-4 flex items-center justify-between relative z-50 transition-colors duration-300 ${mobileMenuOpen || activeMenu ? 'bg-white shadow-md' : 'bg-transparent'
+            className={`w-full px-6 py-4 flex items-center justify-between relative z-50 transition-colors duration-300 ${menuOpen || activeMenu ? 'bg-white shadow-md' : 'bg-transparent'
                 }`}
         >
             <div className="flex items-center gap-2 lg:translate-x-60">
@@ -126,26 +133,33 @@ export const Navbar = () => {
                 />
             </div>
 
-            {mobileMenuOpen && (
+            {menuOpen && (
                 <div
                     className="
-      absolute top-full left-0 right-0
-      bg-white
-      max-h-[70vh]
-      overflow-y-auto
-      flex flex-col
-      items-center
-      gap-6
-      py-6
-    "
+                        absolute top-full left-0 right-0
+                        bg-white
+                        max-h-[70vh]
+                        overflow-y-auto
+                        flex flex-col
+                        items-center
+                        gap-6
+                        py-6
+                        lg:flex-row
+                        lg:static
+                        lg:bg-transparent
+                        lg:max-h-none
+                        lg:overflow-visible
+                        lg:py-0
+                        lg:translate-x-10
+                    "
                 >
                     {navItems.map((item) => (
                         <button
                             key={item.key}
                             onClick={() => handleNavClick(item.key)}
-                            className={`text-base font-medium transition-colors ${activeMenu === item.key
+                            className={`text-base font-medium transition-colors whitespace-nowrap ${activeMenu === item.key
                                     ? "text-amber-700"
-                                    : "text-gray-700 hover:text-amber-700"
+                                    : "text-gray-700 hover:text-amber-700 lg:text-black"
                                 }`}
                         >
                             {item.label}
@@ -156,18 +170,17 @@ export const Navbar = () => {
 
             <button
                 className="p-2 rounded-lg hover:bg-gray-100 transition-colors lg:-translate-x-60"
-                onClick={toggleMenuIcon}
+                onClick={toggleMenu}
             >
-                {mobileMenuOpen ? (
-                    <XMarkIcon className="h-7 w-7 md:h-8 md:w-8 text-gray-700" />
+                {menuOpen ? (
+                    <XMarkIcon className="h-7 w-7 md:h-8 md:w-8 text-gray-700 lg:text-gray-700" />
                 ) : (
-                    <Bars3Icon className="h-7 w-7 md:h-8 md:w-8 text-white" />
+                    <Bars3Icon className="h-7 w-7 md:h-8 md:w-8 text-white lg:text-white" />
                 )}
             </button>
 
-
             {activeMenu && menuData[activeMenu] && (
-                <div className="absolute top-full left-0 right-0 bg-white mt-0">
+                <div className="absolute top-full left-0 right-0 bg-white mt-0 lg:mt-0">
                     <MegaMenuContainer data={menuData[activeMenu]} />
                 </div>
             )}
