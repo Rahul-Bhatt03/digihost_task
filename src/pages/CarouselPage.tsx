@@ -41,10 +41,10 @@ export const CarouselPage = () => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
@@ -91,23 +91,23 @@ export const CarouselPage = () => {
   if (isMobile) {
     return (
       <div className="min-h-screen relative bg-black">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{ backgroundImage: `url(${carouselbg})` }}
         ></div>
-        
+
         <div className="relative z-10 min-h-screen flex flex-col p-4 pt-12">
           <div className="text-center mb-8">
             <h2 className="text-white font-instrument-serif font-normal text-3xl sm:text-4xl leading-[110%] mb-6">
               Paying our privilege forward and paving the way for stronger communities
             </h2>
-            
+
             <div className="mb-8">
               <LearnMoreButton variant="white">Learn More</LearnMoreButton>
             </div>
           </div>
-          
-          <div 
+
+          <div
             className="flex-1 flex items-center justify-center"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
@@ -128,7 +128,7 @@ export const CarouselPage = () => {
             >
               <ChevronLeftIcon className="w-8 h-8 text-white" />
             </button>
-            
+
             <div className="flex gap-3 mx-6">
               {carouselData.map((_, i) => (
                 <button
@@ -138,7 +138,7 @@ export const CarouselPage = () => {
                 />
               ))}
             </div>
-            
+
             <button
               className="p-4 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full shadow-lg hover:bg-white/30 hover:scale-110 transition-all duration-300 active:scale-95"
               onClick={onRightClick}
@@ -146,7 +146,7 @@ export const CarouselPage = () => {
               <ChevronRightIcon className="w-8 h-8 text-white" />
             </button>
           </div>
-          
+
           {/* Mobile Swipe Hint */}
           <div className="text-center mt-4 mb-8">
             <p className="text-white/60 text-sm flex items-center justify-center gap-2">
@@ -197,7 +197,7 @@ export const CarouselPage = () => {
       </div>
 
       <div className="relative flex items-center justify-center p-4 sm:p-8 overflow-hidden z-10">
-       
+
         <div className="relative flex flex-col items-center justify-center w-full max-w-[90vw] sm:max-w-[28rem] h-[700px] sm:h-[800px]">
           {getVisibleCards().map(({ data, position, index: cardIndex }) => (
             <div
@@ -205,11 +205,11 @@ export const CarouselPage = () => {
               className={`
                 absolute transition-all duration-700 ease-in-out
                 ${position === 'center'
-                    ? 'z-20 translate-y-0'
-                    : position === 'top'
-                      ? 'z-10 -translate-y-[320px] sm:-translate-y-[380px] md:-translate-y-[420px] lg:-translate-y-[480px]'
-                      : 'z-10 translate-y-[320px] sm:translate-y-[380px] md:translate-y-[420px] lg:translate-y-[480px]'
-                  }
+                  ? 'z-20 translate-y-0'
+                  : position === 'top'
+                    ? 'z-10 -translate-y-[320px] sm:-translate-y-[380px] md:-translate-y-[420px] lg:-translate-y-[480px]'
+                    : 'z-10 translate-y-[320px] sm:translate-y-[380px] md:translate-y-[420px] lg:translate-y-[480px]'
+                }
               `}
             >
               <CarouselCard

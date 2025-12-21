@@ -126,9 +126,9 @@ export const Navbar = () => {
                 />
             </div>
 
-           {mobileMenuOpen && (
-  <div
-    className="
+            {mobileMenuOpen && (
+                <div
+                    className="
       absolute top-full left-0 right-0
       bg-white
       max-h-[70vh]
@@ -138,22 +138,21 @@ export const Navbar = () => {
       gap-6
       py-6
     "
-  >
-    {navItems.map((item) => (
-      <button
-        key={item.key}
-        onClick={() => handleNavClick(item.key)}
-        className={`text-base font-medium transition-colors ${
-          activeMenu === item.key
-            ? "text-amber-700"
-            : "text-gray-700 hover:text-amber-700"
-        }`}
-      >
-        {item.label}
-      </button>
-    ))}
-  </div>
-)}
+                >
+                    {navItems.map((item) => (
+                        <button
+                            key={item.key}
+                            onClick={() => handleNavClick(item.key)}
+                            className={`text-base font-medium transition-colors ${activeMenu === item.key
+                                    ? "text-amber-700"
+                                    : "text-gray-700 hover:text-amber-700"
+                                }`}
+                        >
+                            {item.label}
+                        </button>
+                    ))}
+                </div>
+            )}
 
             <button
                 className="p-2 rounded-lg hover:bg-gray-100 transition-colors lg:-translate-x-60"
