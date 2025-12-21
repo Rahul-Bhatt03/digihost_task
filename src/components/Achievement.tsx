@@ -37,7 +37,7 @@ export const Achievement = () => {
                         className={`flex flex-col items-center gap-16 lg:gap-28 ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
                             }`}
                     >
-                        {/* IMAGE */}
+
                         <div
                             className={`
     w-full lg:w-[65%]
@@ -87,9 +87,9 @@ export const Achievement = () => {
                     </div>
                 ))}
             </div>
-         <div className="w-full flex justify-start mt-12 lg:mt-16 pr-6 lg:mr-200 lg:pr-20 translate-y-5">
-      <LearnMoreButton textBlack>Learn More</LearnMoreButton>
-    </div>
+            <div className="w-full flex justify-start mt-12 lg:mt-16 pr-6 lg:mr-200 lg:pr-20 translate-y-5">
+                <LearnMoreButton textBlack>Learn More</LearnMoreButton>
+            </div>
 
 
         </section>

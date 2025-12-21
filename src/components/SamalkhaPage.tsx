@@ -26,7 +26,6 @@ export const SamalkhaPage = () => {
                     every <br /> distillery we operate.
                 </h2>
 
-                {/* Location */}
                 <p
                     className="
             font-albert-sans font-normal
@@ -39,7 +38,6 @@ export const SamalkhaPage = () => {
                     Samalkha, Haryana
                 </p>
 
-                {/* Image */}
                 <div className="w-full flex justify-center py-6 sm:py-10 lg:translate-x-30 lg:translate-y-30">
                     <img
                         src={logo}
